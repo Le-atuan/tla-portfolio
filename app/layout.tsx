@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Be_Vietnam_Pro } from "next/font/google";
 import { LocaleProvider } from "@/lib/locale";
 import { content } from "@/lib/content";
+import { ThemeApplier } from "@/components/ThemeApplier";
 import "./globals.css";
 
 const beVietnamPro = Be_Vietnam_Pro({
@@ -45,6 +46,7 @@ export default function RootLayout({
   return (
     <html lang="vi" className={`dark ${beVietnamPro.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-background text-foreground">
+        <ThemeApplier />
         <LocaleProvider>{children}</LocaleProvider>
       </body>
     </html>

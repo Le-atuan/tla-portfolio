@@ -16,7 +16,7 @@ export function Experience() {
         {t.experience.map((role, i) => (
           <Reveal key={`${role.company}-${role.role}`} as="li" delayMs={i * 60} className="relative">
             <span
-              className="absolute -left-[2.35rem] top-1.5 h-3 w-3 rounded-full transition-shadow duration-200 ease-out"
+              className="absolute left-[-2.35rem] top-1.5 h-3 w-3 rounded-full transition-shadow duration-200 ease-out"
               style={{
                 background: "var(--primary)",
                 boxShadow: "0 0 0 4px var(--background), 0 0 12px 2px var(--primary)",

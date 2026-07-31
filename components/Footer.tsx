@@ -11,7 +11,7 @@ export function Footer() {
     <footer className="border-t border-border">
       <div className="mx-auto max-w-6xl px-6 py-8 text-center">
         <p className="text-xs text-muted-foreground">
-          © {year} {profile.name}. {t.footer.copyright}
+          © {year} {profile.name}. All rights reserved.
         </p>
       </div>
     </footer>
