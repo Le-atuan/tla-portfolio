@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a1a"/>
+      <stop offset="100%" stop-color="#141432"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="30%" cy="25%" r="60%">
+      <stop offset="0%" stop-color="#fcd34d" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#fcd34d" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <rect width="800" height="600" fill="url(#glow)"/>
+  <g stroke="#f59e0b" stroke-opacity="0.5" stroke-width="2" fill="none">
+    <polyline points="80,420 220,340 340,380 460,240 580,300 720,180" />
+    <circle cx="220" cy="340" r="5" fill="#f59e0b"/>
+    <circle cx="460" cy="240" r="5" fill="#fcd34d"/>
+    <circle cx="720" cy="180" r="5" fill="#fcd34d"/>
+  </g>
+  <text x="60" y="80" font-family="sans-serif" font-size="28" fill="#f8f8fc" opacity="0.85">Aurora Analytics</text>
+</svg>

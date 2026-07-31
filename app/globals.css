@@ -1,0 +1,186 @@
+@import "tailwindcss";
+
+:root,
+.dark {
+  color-scheme: dark;
+
+  --background: oklch(0.145 0.032 275);
+  --foreground: oklch(0.965 0.008 275);
+
+  --surface: oklch(0.19 0.045 275);
+  --card: oklch(0.215 0.05 275);
+  --popover: oklch(0.215 0.05 275);
+
+  --primary: oklch(0.78 0.16 70);
+  --primary-glow: oklch(0.87 0.13 85);
+  --primary-foreground: oklch(0.18 0.045 275);
+
+  --muted-foreground: oklch(0.73 0.028 275);
+  --accent: oklch(0.32 0.07 70);
+
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 14%);
+  --destructive: oklch(0.704 0.191 22.216);
+
+  --glass: oklch(0.28 0.05 275 / 38%);
+  --glass-border: oklch(1 0 0 / 12%);
+  --glass-blur: 20px;
+
+  --radius: 1rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-card: var(--card);
+  --color-popover: var(--popover);
+  --color-primary: var(--primary);
+  --color-primary-glow: var(--primary-glow);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-destructive: var(--destructive);
+  --radius-md: var(--radius);
+  --font-sans: var(--font-be-vietnam-pro);
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-be-vietnam-pro), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+/* ---------- Glassmorphism ---------- */
+
+.glass {
+  position: relative;
+  background: var(--glass);
+  backdrop-filter: blur(var(--glass-blur)) saturate(150%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(150%);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  box-shadow:
+    inset 0 1px 0 0 oklch(1 0 0 / 8%),
+    0 20px 40px -20px oklch(0 0 0 / 55%);
+  transition: border-color 200ms ease-out, box-shadow 200ms ease-out, transform 200ms ease-out;
+}
+
+.glass:hover {
+  border-color: oklch(0.78 0.16 70 / 35%);
+  box-shadow:
+    inset 0 1px 0 0 oklch(1 0 0 / 8%),
+    0 24px 44px -20px oklch(0 0 0 / 60%);
+}
+
+.glass-bar {
+  background: oklch(0.145 0.032 275 / 55%);
+  backdrop-filter: blur(18px) saturate(150%);
+  -webkit-backdrop-filter: blur(18px) saturate(150%);
+  border-bottom: 1px solid transparent;
+  transition: border-color 250ms ease-out, box-shadow 250ms ease-out;
+}
+
+.glass-bar[data-scrolled="true"] {
+  border-bottom-color: var(--glass-border);
+  box-shadow: 0 8px 30px -18px oklch(0 0 0 / 60%);
+}
+
+/* ---------- Aurora background ---------- */
+
+@keyframes aurora-drift {
+  0%,
+  100% {
+    transform: translate(-4%, -2%) scale(1);
+  }
+  50% {
+    transform: translate(3%, 4%) scale(1.08);
+  }
+}
+
+.aurora-blob {
+  animation: aurora-drift 22s ease-in-out infinite;
+}
+
+/* ---------- Scroll-entry reveal ---------- */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1), transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal[data-revealed="true"] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal.reveal-right {
+  transform: translateX(24px);
+}
+
+.reveal.reveal-right[data-revealed="true"] {
+  transform: translate(8px, 0px);
+}
+
+/* ---------- Live-status pulse (About "currently" marker) ---------- */
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 4px var(--background),
+      0 0 10px 2px var(--primary);
+    opacity: 1;
+  }
+  50% {
+    box-shadow:
+      0 0 0 4px var(--background),
+      0 0 18px 6px var(--primary);
+    opacity: 0.75;
+  }
+}
+
+.animate-pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .aurora-blob {
+    animation: none;
+  }
+
+  .animate-pulse-dot {
+    animation: none;
+  }
+
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

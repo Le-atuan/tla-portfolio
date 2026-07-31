@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a0a1a"/>
+      <stop offset="100%" stop-color="#141432"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <g font-family="monospace" font-size="20" fill="#fcd34d" opacity="0.85">
+    <text x="80" y="200">$ forge new service</text>
+    <text x="80" y="240" fill="#f59e0b" opacity="0.7">✓ scaffold created</text>
+    <text x="80" y="280" fill="#f59e0b" opacity="0.7">✓ dependencies linked</text>
+    <text x="80" y="320" fill="#f59e0b" opacity="0.7">✓ ready in 15s</text>
+  </g>
+  <rect x="60" y="150" width="640" height="220" rx="14" fill="none" stroke="#f59e0b" stroke-opacity="0.3" stroke-width="1.5"/>
+  <text x="60" y="80" font-family="sans-serif" font-size="28" fill="#f8f8fc" opacity="0.85">Forge CLI</text>
+</svg>
